@@ -134,6 +134,11 @@ api.numberOfCertainChars = (input, c) => {
   /**
    * Your implementation goes here
    */
+
+   let countCertainChars = input.join('').split(c).length - 1
+   return countCertainChars
+
+
   return 0;
 };
 
