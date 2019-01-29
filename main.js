@@ -84,6 +84,14 @@ api.distill = (input, fn) => {
   /**
    * Your implementation goes here
    */
+  var even = [];
+  var odd = [];
+  for (var i = 0; i <= input.length - 1; i++ ) {
+    if (input[i] % 2 === 0) {
+      even.push(input[i]);
+      return even;
+    } 
+  }
 
   return [];
 };
