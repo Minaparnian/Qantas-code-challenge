@@ -84,6 +84,7 @@ api.distill = (input, fn) => {
   /**
    * Your implementation goes here
    */
+
   return [];
 };
 
@@ -106,6 +107,9 @@ api.numberOfChars = (input) => {
   /**
    * Your implementation goes here
    */
+   var arr = input.join("").split("")
+   arr.sort();
+   return arr.length
   return 0;
 };
 
