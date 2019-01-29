@@ -48,13 +48,9 @@ api.fanOut = (input, fn) => {
 
  */
 api.funnel = (input, fn, startValue) => {
-   // var sum = input.reduce((a, b) => a + b, startValue);
-   // return sum
-
    var result = startValue;
    for (var i = 0; i <= input.length - 1; i++) {
      result = fn(result, input[i]);
-     console.log(input[i], result)
    }
    return result
 };
