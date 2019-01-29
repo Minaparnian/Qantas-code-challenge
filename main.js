@@ -22,6 +22,12 @@ api.fanOut = (input, fn) => {
   /**
    * Your implementation goes here
    */
+
+   return input.map(function (i) {
+     return Math.pow(i, 2)
+   })
+   return input.split('')
+
   return [];
 };
 
@@ -50,6 +56,8 @@ api.funnel = (input, fn, startValue) => {
   /**
    * Your implementation goes here
    */
+   var sum = input.reduce((a, b) => a + b, startValue);
+   return sum
   return 0;
 };
 
