@@ -19,16 +19,11 @@ var api = {};
 
 */
 api.fanOut = (input, fn) => {
-  /**
-   * Your implementation goes here
-   */
-
-   return input.map(function (i) {
-     return Math.pow(i, 2)
-   })
-   return input.split('')
-
-  return [];
+   var result = []
+   for ( var i = 0; i <= input.length - 1; i++ ) {
+       result.push(fn(input[i]))
+   }
+  return result;
 };
 
 /**
@@ -53,12 +48,15 @@ api.fanOut = (input, fn) => {
 
  */
 api.funnel = (input, fn, startValue) => {
-  /**
-   * Your implementation goes here
-   */
-   var sum = input.reduce((a, b) => a + b, startValue);
-   return sum
-  return 0;
+   // var sum = input.reduce((a, b) => a + b, startValue);
+   // return sum
+
+   var result = startValue;
+   for (var i = 0; i <= input.length - 1; i++) {
+     result = fn(result, input[i]);
+     console.log(input[i], result)
+   }
+   return result
 };
 
 /**
@@ -81,19 +79,13 @@ api.funnel = (input, fn, startValue) => {
 
  */
 api.distill = (input, fn) => {
-  /**
-   * Your implementation goes here
-   */
-  var even = [];
-  var odd = [];
+  var result = [];
   for (var i = 0; i <= input.length - 1; i++ ) {
-    if (input[i] % 2 === 0) {
-      even.push(input[i]);
-      return even;
-    } 
+    if (fn(input[i])) {
+      result.push(input[i])
+    }
   }
-
-  return [];
+  return result;
 };
 
 /**
@@ -112,13 +104,7 @@ api.distill = (input, fn) => {
 
  */
 api.numberOfChars = (input) => {
-  /**
-   * Your implementation goes here
-   */
-   var arr = input.join("").split("")
-   arr.sort();
-   return arr.length
-  return 0;
+   return input.join("").length;
 };
 
 /**
@@ -139,15 +125,15 @@ api.numberOfChars = (input) => {
 
  */
 api.numberOfCertainChars = (input, c) => {
-  /**
-   * Your implementation goes here
-   */
-
-   let countCertainChars = input.join('').split(c).length - 1
-   return countCertainChars
-
-
-  return 0;
+   var result = 0;
+   for (var i = 0; i <= input.length - 1 ; i++) {
+     var word = input[i]
+     for (var j = 0; j <= word.length - 1 ; j++) {
+        if(word.charAt(j) === c)
+        result++;
+     }
+   }
+   return result
 };
 
 module.exports = api;
