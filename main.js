@@ -19,11 +19,11 @@ var api = {};
 
 */
 api.fanOut = (input, fn) => {
-   var result = []
-   for ( var i = 0; i <= input.length - 1; i++ ) {
-       result.push(fn(input[i]))
-   }
+  let result = input.map((val, i, input) => {
+    return fn(val)
+  })
   return result;
+
 };
 
 /**
@@ -51,7 +51,6 @@ api.funnel = (input, fn, startValue) => {
    let sum = input.reduce(fn, startValue)
    return sum
 };
-
 /**
  PART 3: Implement distill.
 
