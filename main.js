@@ -71,12 +71,9 @@ api.funnel = (input, fn, startValue) => {
 
  */
 api.distill = (input, fn) => {
-  var result = [];
-  for (var i = 0; i <= input.length - 1; i++ ) {
-    if (fn(input[i])) {
-      result.push(input[i])
-    }
-  }
+  var result = input.filter(val => {
+     return fn(val)
+  })
   return result;
 };
 
